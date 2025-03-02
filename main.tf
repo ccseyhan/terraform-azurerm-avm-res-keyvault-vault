@@ -16,7 +16,7 @@ resource "azurerm_key_vault" "this" {
   # Only one network_acls block is allowed.
   # Create it if the variable is not null.
   dynamic "network_acls" {
-    for_each = var.network_acls != null ? { this = var.network_acls } : {}
+    for_each = var.network_acls != null ? { this = var.network_acls } : []
 
     content {
       bypass                     = network_acls.value.bypass
